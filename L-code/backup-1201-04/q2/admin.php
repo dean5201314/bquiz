@@ -1,4 +1,3 @@
-<?php include_once "db.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,7 @@
 <main class="container p-3">
 <fieldset>
     <legend>新增問卷</legend>
-    <form action="./api/add_que.php" method="post">
+    <form action="add_que.php" method="post">
     <!--主題-->
     <div class="d-flex">
         <div class="col-3 bg-light p-2">問卷名稱</div>
@@ -37,36 +36,6 @@
     </form>
 </fieldset>
 
-<fieldset>
-    <legend>問卷列表</legend>
-    <div class="col-9 mx-auto">
-    <table class="table">
-    <tr>
-        <td>編號</td>
-        <td>主題內容</td>
-        <td>操作</td>
-    </tr>
-    <?php
-    $ques=$Que->all(['subject_id'=>0]);
-    foreach($ques as $idx => $que){
-    ?>
-    <tr>
-        <td><?=$idx+1;?></td>
-        <td><?=$que['text'];?></td>
-        <td>
-            <button class="btn btn-info">顯示</button>
-            <button class="btn btn-success">編輯</button>
-            <a href="./api/del.php?id=<?=$que['id'];?>">
-                <button class="btn btn-danger">刪除</button>
-            </a>
-        </td>
-    </tr>
-    <?php
-    }
-    ?>
-    </table>
-    </div>
-</fieldset>
 
 </main>
 
